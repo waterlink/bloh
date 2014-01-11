@@ -3,8 +3,16 @@
 require_once 'connect.php';
 
 class Post {
-  public $title, $content, $date;
+
+  public $title, $content, $created_at;
+
   // Find one, find all, post one
+
+  function __construct($data = array()) {
+    $this->title = $data['title'];
+    $this->content = $data['content'];
+  }
+
   static function find ($id) {
     echo "Dick\n";
   }
@@ -14,6 +22,7 @@ class Post {
   }
 
   function save ($content) {
-    echo "My\n";
+
   }
+
 }
