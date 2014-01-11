@@ -18,6 +18,7 @@ sudo {vim or subl, or anything else} /etc/postgresql/9.*/main/pg_hba.conf
 + local   all             bloh                                    md5
 
 }
+sudo service postgresql restart
 sudo su postgres
 {postgres}: ./createdb.sh
 {entering here bloh-bloh}
