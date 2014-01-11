@@ -22,3 +22,10 @@ sudo su postgres
 php connect.php
 ```
 
+## Creating post table
+
+```bash
+psql bloh -f post.sql -u bloh -W
+{enter bloh password}
+```
+
