@@ -48,7 +48,8 @@ class Post {
       $this->created_at = date('Y-m-d H:i:s');
       $this->updated_at = $this->created_at;
       $sql = 'insert into post (id, title, content, created_at, updated_at) values (:id, :title, :content, :created_at, :created_at)';
-      $this->id = $db->query("select nextval('bloh_post_id_seq')")->fetch()[0];
+      $next_id = $db->query("select nextval('bloh_post_id_seq')")->fetch();
+      $this->id = $next_id[0];
       $q = $db->prepare($sql);
       $data = array(':id'=>$this->id,
                     ':title'=>$this->title,
@@ -68,6 +69,3 @@ class Post {
     }
   }
 }
-$post = Post::find(26);
-$post->content = "Lick my balls, Mario`s Princess!";
-$post->save();
