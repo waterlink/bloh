@@ -4,4 +4,6 @@ create table post (
   title varchar(50),
   content varchar(4000),
   created_at timestamp
-)
+);
+
+alter table post add updated_at timestamp;

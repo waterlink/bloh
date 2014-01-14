@@ -4,37 +4,61 @@ require_once 'connect.php';
 
 class Post {
 
-  public $id, $title, $content, $created_at;
+  public $id, $title, $content, $created_at, $updated_at;
+  public $_columns = array('id', 'title', 'content', 'created_at', 'updated_at');
 
   // Find one, find all, post one
 
   function __construct($data = array()) {
-    $this->title = $data['title'];
-    $this->content = $data['content'];
+    foreach ($this->_columns as $column) {
+      if (isset($data[$column])) {
+        $this->$column = $data[$column];
+      }
+    }
   }
 
   static function find ($id) {
-    echo "Dick\n";
+    global $db;
+    $sql = "select * from post where id = :id";
+    $q = $db->prepare($sql);
+    $q->execute(array(':id' => $id));
+    $res = $q->fetch();
+    if ($res) {
+      return new Post($res);
+    } else {
+      return NULL;
+    }
   }
 
   static function all () {
-    echo "Suck\n";
+    global $db;
+    $posts = array();
+    $sql = "select * from post";
+    $q = $db->prepare($sql);
+    $q->execute();
+    while ($res = $q->fetch()) {
+      array_push($posts, new Post($res));
+    }
+    return $posts;
   }
 
   function save () {
     global $db;
     if (is_null($this->id)) {
-      $this->created_at = time();
+      $this->created_at = date('Y-m-d H:i:s');
       $this->updated_at = $this->created_at;
       $sql = 'insert into post (id, title, content, created_at, updated_at) values (:id, :title, :content, :created_at, :created_at)';
+      $this->id = $db->query("select nextval('bloh_post_id_seq')")->fetch()[0];
       $q = $db->prepare($sql);
-      $this->id = $db->query("select nextval('bloh_post_id_seq')")->fetch();
-      $q->execute(array(':id'=>$this->id,
-                        ':title'=>$this->title,
-                        ':content'=>$this->content,
-                        ':created_at'=>$this->created_at));
+      $data = array(':id'=>$this->id,
+                    ':title'=>$this->title,
+                    ':content'=>$this->content,
+                    ':created_at'=>$this->created_at);
+      if (!$q->execute($data)) {
+        var_dump($q->errorInfo());
+      }
     } else {
-      $this->updated_at = time();
+      $this->updated_at = date('Y-m-d H:i:s');
       $sql = "update post set title = :title, content = :content, updated_at = :updated_at where id=:id";
       $q = $db->prepare($sql);
       $q->execute(array(":title"=>$this->title,
@@ -43,7 +67,7 @@ class Post {
                         ":id"=>$this->id));
     }
   }
-
 }
-$post = new Post(array('title'=>"Bga", 'content'=>"first post"));
+$post = Post::find(26);
+$post->content = "Lick my balls, Mario`s Princess!";
 $post->save();
