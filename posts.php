@@ -9,3 +9,5 @@
   }
 ?>
 </ul>
+
+<a href="/new_post_view.php">Add post</a>
