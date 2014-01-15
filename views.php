@@ -1,16 +1,34 @@
 <?php
 require_once "models.php";
-$post = Post::find($_GET['id']);
+$id = $_GET['id'];
+if ($id == NULL){
+  $posts = Post::all();
+} else {
+  $post = Post::find($id);
+}
 ?>
 <!doctype html>
 <html>
   <head>
-    <title><?= $post->title ?> - Bloh!</title>
+    <title><?
+    if (isset($post)) {
+      echo $post->title;
+    }
+    else if (isset($posts)) {
+      echo "All posts";
+    }
+    else {
+      echo "Posts don`t found";
+    }
+    ?> - Bloh!</title>
   </head>
   <body>
-  <article>
-    <h1><?= $post->title ?></h1>
-    <div><?= $post->content ?></div>
-  </article>
+    <?
+      if (isset($post)) {
+        require_once "post.php";
+      } else {
+        require_once "posts.php";
+      }
+    ?>
   </body>
 </html>

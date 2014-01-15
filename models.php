@@ -68,4 +68,7 @@ class Post {
                         ":id"=>$this->id));
     }
   }
+  function get_url() {
+    return "/views.php?id=".$this->id;
+  }
 }
