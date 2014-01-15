@@ -7,15 +7,18 @@ if ($id == NULL){
   $post = Post::find($id);
 }
 ?>
-<!doctype html>
-<html>
   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="index.js"></script>
     <title><?
     if (isset($post)) {
       echo $post->title;
+      $view_name = "post";
     }
     else if (isset($posts)) {
       echo "All posts";
+      $view_name = "posts";
     }
     else {
       echo "Posts don`t found";
@@ -24,11 +27,6 @@ if ($id == NULL){
   </head>
   <body>
     <?
-      if (isset($post)) {
-        require_once "post.php";
-      } else {
-        require_once "posts.php";
-      }
+      require_once $view_name.".php";
     ?>
   </body>
-</html>

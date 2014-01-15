@@ -71,4 +71,8 @@ class Post {
   function get_url() {
     return "/views.php?id=".$this->id;
   }
+
+  static function get_index_url() {
+    return "/views.php";
+  }
 }
