@@ -1,6 +1,6 @@
 <?php
 require_once "models.php";
-$post = Post::find(26);
+$post = Post::find($_GET['id']);
 ?>
 <!doctype html>
 <html>
@@ -10,7 +10,7 @@ $post = Post::find(26);
   <body>
   <article>
     <h1><?= $post->title ?></h1>
-    <div><? $post->content ?></div>
+    <div><?= $post->content ?></div>
   </article>
   </body>
 </html>
