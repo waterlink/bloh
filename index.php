@@ -1,6 +1,3 @@
-<!doctype html>
-<html>
-    <?
-    require_once "views.php";
-    ?>
-</html>
+<?
+require_once "views.php";
+?>
