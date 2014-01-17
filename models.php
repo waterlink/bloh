@@ -72,6 +72,16 @@ class Post {
     return "/views.php?id=".$this->id;
   }
 
+  function destroy() {
+    global $db;
+    $sql = "delete from post where id = :id";
+    $q = $db->prepare($sql);
+    $data = array(":id"=>$this->id);
+    if (!$q->execute($data)) {
+      var_dump($q->errorInfo());
+    }
+  }
+
   static function get_index_url() {
     return "/views.php";
   }
