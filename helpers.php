@@ -5,4 +5,9 @@ var_dump($uri);
     $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
   return $protocol.$_SERVER['HTTP_HOST'].$uri;
 }
+
+function redirect($uri) {
+  header('Location:'.$uri);
+  exit();
+}
 ?>

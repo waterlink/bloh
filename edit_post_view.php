@@ -7,8 +7,7 @@ if ($method == "put") {
   $post->title = $_POST['title'];
   $post->content = $_POST['content'];
   $post->save();
-  header('Location: /views.php?id='.$post->id);
-  exit();
+  redirect($post->get_uri());
 }
 ?>
 <form action="edit_post_view.php?id=<?= $post->id?>" method="POST">
@@ -23,7 +22,7 @@ if ($method == "put") {
         name="content"><? echo $post->content?></textarea>
   </span>
   <br>
-  <button>Edit post</button>
+  <button>Save</button>
 </form>
 
 <a href="/views.php">All posts</a>
