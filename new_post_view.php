@@ -1,17 +1,8 @@
 <?php ob_start();
 require_once "models.php";
 require_once "helpers.php";
-$title = $_POST['title'];
-$content = $_POST['content'];
-if (isset($title) and isset($content)) {
-  $post = new Post(array("title"=>$_POST['title'], "content"=>$_POST['content']));
-  $post->save();
-  header('Location:'.get_absolute_url('/views.php?id='.$post->id), true, 302);
-  exit();
-}
-
 ?>
-<form action="new_post_view.php" method="POST">
+<form action="new.php" method="POST">
   <span>
     Post title: <input type="text" cols="50" name="title">
   </span>
@@ -23,6 +14,6 @@ if (isset($title) and isset($content)) {
 <button>Add new post</button>
 </form>
 
-<a href="/views.php">All posts</a>
+<a href="/show.php">All posts</a>
 
 <? ob_end_flush() ?>

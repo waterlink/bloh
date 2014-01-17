@@ -69,7 +69,7 @@ class Post {
     }
   }
   function get_url() {
-    return "/views.php?id=".$this->id;
+    return "/show.php?id=".$this->id;
   }
 
   function destroy() {
@@ -83,6 +83,6 @@ class Post {
   }
 
   static function get_index_url() {
-    return "/views.php";
+    return "/show.php";
   }
 }

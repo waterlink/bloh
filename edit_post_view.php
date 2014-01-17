@@ -1,16 +1,7 @@
 <?php
 require_once "models.php";
-$method = $_POST['method'];
-$id = $_GET['id'];
-$post = Post::find($id);
-if ($method == "put") {
-  $post->title = $_POST['title'];
-  $post->content = $_POST['content'];
-  $post->save();
-  redirect($post->get_uri());
-}
 ?>
-<form action="edit_post_view.php?id=<?= $post->id?>" method="POST">
+<form action="edit.php?id=<?= $post->id?>" method="POST">
   <input type="hidden" name="method" value="put">
   <span>
     Post title: <input type="text" cols="50" name="title" value="<?= $post->title?>">
@@ -25,4 +16,4 @@ if ($method == "put") {
   <button>Save</button>
 </form>
 
-<a href="/views.php">All posts</a>
+<a href="/show.php">All posts</a>

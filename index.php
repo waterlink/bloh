@@ -1,3 +1,3 @@
 <?
-require_once "views.php";
+require_once "show.php";
 ?>
