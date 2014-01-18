@@ -1,7 +1,6 @@
-bloh
-====
+# bloh - Ultimate Blog Application on Pure PHP
 
-## Install php
+## Install php 5.{4,5} on Ubuntu 13.04+
 
 ```bash
 sudo apt-get install php5 php5-dev php5-pgsql
@@ -38,6 +37,8 @@ sudo su postgres
 ```bash
 php connect.php
 ```
+
+It shouldn't output any errors
 
 ## Creating post table
 
