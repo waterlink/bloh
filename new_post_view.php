@@ -1,6 +1,6 @@
 <?php ob_start();
-require_once "./models/post.php";
-require_once "./helpers.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/helpers.php";
 ?>
 <form action="new.php" method="POST">
   <span>

@@ -1,5 +1,5 @@
 <?php
-require_once "./models/post.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 $view_name = "views/";
 $id = $_GET['id'];
 if ($id == NULL){

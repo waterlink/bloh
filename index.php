@@ -1,3 +1,3 @@
 <?
-require_once "./show.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/show.php";
 ?>
