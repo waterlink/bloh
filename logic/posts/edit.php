@@ -13,4 +13,4 @@ if ($method == "put") {
 $view_name = 'views/posts/edit';
 $title = 'Edit Post';
 $post = Post::find($id = $_GET['id']);
-require $_SERVER['DOCUMENT_ROOT'].'/layout.php';
+require $_SERVER['DOCUMENT_ROOT'].'/views/layouts/layout.php';

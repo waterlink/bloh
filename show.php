@@ -20,5 +20,5 @@ else {
   $view_name = $view_name."errors/404";
   header('HTTP/1.1 404 Not Found');
 }
-require "layout.php";
+require "views/layouts/layout.php";
 ?>
