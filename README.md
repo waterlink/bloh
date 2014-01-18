@@ -7,6 +7,15 @@ bloh
 sudo apt-get install php5 php5-dev php5-pgsql
 ```
 
+## Running php server in development
+
+```bash
+cd projects/bloh
+php -S localhost 3000
+```
+
+Now it is available on http://localhost:3000
+
 ## Install postgres
 
 ```bash
