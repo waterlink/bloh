@@ -1,6 +1,6 @@
 <?php
-require_once "helpers.php";
-require_once "models.php";
+require_once "./helpers.php";
+require_once "./models/post.php";
 ?>
   <form action="destroy.php?id=<?=$post->id?>" method="post">
     <input type="hidden" name="method" value="delete">

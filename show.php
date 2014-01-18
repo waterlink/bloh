@@ -1,5 +1,6 @@
 <?php
-require_once "models.php";
+require_once "./models/post.php";
+$view_name = "views/";
 $id = $_GET['id'];
 if ($id == NULL){
   $posts = Post::all();
@@ -16,7 +17,7 @@ else if (isset($posts)) {
 }
 else {
   $title = "Posts don`t found";
-  $view_name = "not_found";
+  $view_name = $view_name."errors/404";
   header('HTTP/1.1 404 Not Found');
 }
 require "layout.php";

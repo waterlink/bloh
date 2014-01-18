@@ -1,6 +1,6 @@
 <?php
-require_once "models.php";
-require_once "helpers.php";
+require_once "./models.php";
+require_once "./helpers.php";
 $method = $_POST['method'];
 $id = $_GET['id'];
 $post = Post::find($id);

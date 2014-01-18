@@ -1,6 +1,6 @@
 <?php
-require_once "models.php";
-require_once "helpers.php";
+require_once "./models/post.php";
+require_once "./helpers.php";
 $view_name = 'new_post_view';
 $title = 'New Post';
 $title = $_POST['title'];

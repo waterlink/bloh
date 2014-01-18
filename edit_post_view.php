@@ -1,5 +1,5 @@
 <?php
-require_once "models.php";
+require_once "./models/post.php";
 ?>
 <form action="edit.php?id=<?= $post->id?>" method="POST">
   <input type="hidden" name="method" value="put">
