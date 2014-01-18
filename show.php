@@ -9,11 +9,11 @@ if ($id == NULL){
 }
 if (isset($post)) {
   $title = $post->title;
-  $view_name = "post";
+  $view_name = $view_name."posts/post";
 }
 else if (isset($posts)) {
   $title = "All posts";
-  $view_name = "posts";
+  $view_name = $view_name."posts/posts";
 }
 else {
   $title = "Posts don`t found";

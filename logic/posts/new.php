@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/helpers.php";
-$view_name = 'new_post_view';
+$view_name = 'views/posts/new';
 $title = 'New Post';
 $title = $_POST['title'];
 $content = $_POST['content'];

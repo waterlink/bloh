@@ -10,7 +10,7 @@ if ($method == "put") {
   $post->save();
   redirect($post->get_url());
 }
-$view_name = 'edit_post_view';
+$view_name = 'views/posts/edit';
 $title = 'Edit Post';
 $post = Post::find($id = $_GET['id']);
 require $_SERVER['DOCUMENT_ROOT'].'/layout.php';
