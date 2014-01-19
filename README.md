@@ -10,7 +10,7 @@ sudo apt-get install php5 php5-dev php5-pgsql
 
 ```bash
 cd projects/bloh
-php -S localhost 3000
+php -S localhost:3000
 ```
 
 Now it is available on http://localhost:3000
