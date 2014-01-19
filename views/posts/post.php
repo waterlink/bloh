@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT']."/helpers.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/lib/helpers.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 ?>
   <form action="logic/posts/destroy.php?id=<?=$post->id?>" method="post">

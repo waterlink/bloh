@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/helpers.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/lib/helpers.php";
 $method = $_POST['method'];
 $id = $_GET['id'];
 $post = Post::find($id);
