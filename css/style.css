@@ -1,0 +1,103 @@
+.main-container {
+  margin: auto;
+  text-align: center;
+  width: 80%;
+}
+
+.container {
+  text-align: left;
+  display: block;
+}
+
+.row {
+  width:100%;
+  display: inline-block;
+  position: relative;
+}
+
+
+.post-content {
+  font-family: monospace;
+}
+
+.btn {
+  padding: 1px 6px;
+
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  border: 2px outset buttonface;
+
+  box-sizing: border-box;
+  margin: 0em;
+  font: -webkit-small-control;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  -webkit-writing-mode: horizontal-tb;
+  -webkit-appearance: button;
+  text-decoration: none;
+}
+
+.btn.std {
+  align-items: flex-start;
+  background-color: buttonface;
+}
+
+.btn.custom {
+  height: 30px;
+  padding-top: 6px;
+  border-radius: 5px;
+  border: 1px outset buttonface;
+  -webkit-appearance: none;
+  box-shadow: 1px 1spx 1px #888888;
+}
+
+.btn.custom.ok {
+  color: white;
+  background: -webkit-repeating-linear-gradient(#008000, #00A000 50%, #008000);
+}
+
+.btn.custom.suxx {
+  color: white;
+  background: -webkit-repeating-linear-gradient(#EF4040, #FF4040 50%, #EF4040);
+}
+
+.btn.custom:hover {
+  cursor: pointer;
+  border: 1px outset #C0C0C0;
+}
+.span5 {
+  width: 50%;
+}
+
+.span4 {
+  width: 40%;
+}
+
+.span3 {
+  width: 30%;
+}
+
+.span2 {
+  width: 20%;
+}
+
+.span1 {
+  width: 10%;
+}
+
+.pool-left {
+  float:left;
+}
+
+.pool-right {
+  float: right;
+}
+
+ul {
+  list-style: none;
+}
