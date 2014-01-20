@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/lib/helpers.php";
 ?>
-<form action="new.php" method="POST">
+<form action="/logic/posts/new.php" method="POST">
   <span>
     Post title: <input type="text" cols="50" name="title">
   </span>
@@ -14,6 +14,6 @@ require_once $_SERVER['DOCUMENT_ROOT']."/lib/helpers.php";
 <button>Add new post</button>
 </form>
 
-<a href="/views/show.php">All posts</a>
+<a href="/views/index.php">All posts</a>
 
 <? ob_end_flush() ?>

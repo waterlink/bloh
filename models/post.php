@@ -83,6 +83,6 @@ class Post {
   }
 
   static function get_index_url() {
-    return "/views/show.php";
+    return "/views/index.php";
   }
 }

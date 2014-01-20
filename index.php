@@ -1,3 +1,3 @@
 <?
-require_once $_SERVER['DOCUMENT_ROOT']."/views/show.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/views/index.php";
 ?>

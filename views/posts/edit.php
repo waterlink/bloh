@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 ?>
-<form action="edit.php?id=<?= $post->id?>" method="POST">
+<form action="/logic/posts/edit.php?id=<?= $post->id?>" method="POST">
   <input type="hidden" name="method" value="put">
   <span>
     Post title: <input type="text" cols="50" name="title" value="<?= $post->title?>">
@@ -16,4 +16,4 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
   <button>Save</button>
 </form>
 
-<a href="/views/show.php">All posts</a>
+<a href="/views/index.php">All posts</a>

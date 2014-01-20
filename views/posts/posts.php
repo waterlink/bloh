@@ -9,4 +9,4 @@
   }
 ?>
 </ul>
-<a href="logic/posts/new.php">Add post</a>
+<a href="/logic/posts/new.php">Add post</a>
