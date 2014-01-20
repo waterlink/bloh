@@ -16,4 +16,4 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
   <button>Save</button>
 </form>
 
-<a href="/show.php">All posts</a>
+<a href="/views/show.php">All posts</a>
