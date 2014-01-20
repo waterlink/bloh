@@ -14,6 +14,6 @@ require_once $_SERVER['DOCUMENT_ROOT']."/lib/helpers.php";
 <button>Add new post</button>
 </form>
 
-<a href="/views/index.php">All posts</a>
+<a href="/views/posts/index.php">All posts</a>
 
 <? ob_end_flush() ?>
