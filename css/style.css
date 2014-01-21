@@ -1,3 +1,6 @@
+body {
+  font-family: sans-serif;
+}
 .main-container {
   margin: auto;
   text-align: center;
@@ -15,9 +18,13 @@
   position: relative;
 }
 
+.row > .row:first-child {
+  padding-left: 0px;
+}
 
 .post-content {
   font-family: monospace;
+  padding: 30px;
 }
 
 .btn {
@@ -58,18 +65,32 @@
 
 .btn.custom.ok {
   color: white;
+  background: -webkit-repeating-linear-gradient(#338033, #33A033 50%, #338033);
+}
+
+.btn-custom.ok:hover {
   background: -webkit-repeating-linear-gradient(#008000, #00A000 50%, #008000);
 }
 
-.btn.custom.suxx {
+.btn.custom.err {
   color: white;
-  background: -webkit-repeating-linear-gradient(#EF4040, #FF4040 50%, #EF4040);
+  background: -webkit-repeating-linear-gradient(#D11111, #E11111 50%, #D11111);
+}
+
+.btn.custom.main {
+  color: white;
+  background: -webkit-repeating-linear-gradient(#0066FF, #0088FF 50%, #0066FF);
 }
 
 .btn.custom:hover {
   cursor: pointer;
   border: 1px outset #C0C0C0;
 }
+
+[class *= "span"] {
+  padding: 10px;
+}
+
 .span5 {
   width: 50%;
 }

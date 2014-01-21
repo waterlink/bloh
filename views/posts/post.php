@@ -14,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
         <div class="post-content"><?= $post->content ?></div>
         <div class="row">
           <button>Remove Post</button>
-          <a class="btn custom ok" role="button" href="/logic/posts/edit.php?id=<?= $post->id?>">Edit post</a>
+          <a class="btn custom main" role="button" href="/logic/posts/edit.php?id=<?= $post->id?>">Edit post</a>
         </div>
       </div>
     </article>
