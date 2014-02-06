@@ -18,6 +18,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
             href="/logic/posts/edit.php?id=<?= $post->id?>">Edit post</a>
         </div>
       </div>
+      <?
+        require $_SERVER['DOCUMENT_ROOT'].'/views/comments/comments.php';
+      ?>
     </article>
   </form>
   <a href="<?=Post::get_index_url()?>">All posts</a>
