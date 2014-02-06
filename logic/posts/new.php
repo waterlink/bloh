@@ -6,7 +6,8 @@ $title = 'New Post';
 $post_title = $_POST['title'];
 $post_content = $_POST['content'];
 if (isset($post_title) and isset($post_content)) {
-  $post = new Post(array("title"=>$post_title, "content"=>$post_content));
+  $now = date('Y-m-d H:i:s');
+  $post = new Post(array("title"=>$post_title, "content"=>$post_content, "created_at"=>$now, "updated_at"=>$now));
   $post->save();
   header('Location:'.get_absolute_url('/views/posts/show.php?id='.$post->id), true, 302);
   exit();

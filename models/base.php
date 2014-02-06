@@ -2,6 +2,16 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/lib/connect.php';
 
+function AssKeyValue ($data) {
+  $result = "";
+  foreach ($data as $item){
+    $result = $result.$item.' = :'.$item.', ';
+  }
+  $result = substr_replace($result, "", -2);
+  $result = str_replace("id = :id, ","",$result);//preg_replace( "/-\d+x\d+/", "", $path );
+  return $result;
+}
+
 class Base {
 
   public $id, $title, $content, $created_at, $updated_at;
@@ -49,29 +59,23 @@ class Base {
     global $db;
     $class_name = get_called_class();
     if (is_null($this->id)) {
-      $this->created_at = date('Y-m-d H:i:s');
-      $this->updated_at = $this->created_at;
-      $sql = 'insert into '.$class_name::$table_name.' (id, title, content, created_at, updated_at) values (:id, :title, :content, :created_at, :created_at)';
-      $next_id = $db->query("select nextval('bloh_post_id_seq')")->fetch();
+      $sql = 'insert into '.$class_name::$table_name.' ('.implode(", ", $class_name::$columns).') values (:'.implode(", :",$class_name::$columns).')';
+      $next_id = $db->query("select nextval('".$class_name::$sequence_id."')")->fetch();
       $this->id = $next_id[0];
-      $q = $db->prepare($sql);
-      $data = array(':id'=>$this->id,
-                    ':title'=>$this->title,
-                    ':content'=>$this->content,
-                    ':created_at'=>$this->created_at);
-      if (!$q->execute($data)) {
+    } else {
+      AssKeyValue($class_name::$columns);
+      $sql = "update ".$class_name::$table_name." set ".AssKeyValue($class_name::$columns)." where id=:id";
+    }
+    $q = $db->prepare($sql);
+    $exec_array = array();
+      foreach ($class_name::$columns as $column) {
+        $exec_array[$column] = $this->$column;
+      }
+      if (!$q->execute($exec_array)) {
         var_dump($q->errorInfo());
       }
-    } else {
-      $this->updated_at = date('Y-m-d H:i:s');
-      $sql = "update ".$class_name::$table_name." set title = :title, content = :content, updated_at = :updated_at where id=:id";
-      $q = $db->prepare($sql);
-      $q->execute(array(":title"=>$this->title,
-                        ":content"=>$this->content,
-                        ":updated_at"=>$this->updated_at,
-                        ":id"=>$this->id));
-    }
   }
+
   function get_url() {
     return "/views/posts/show.php?id=".$this->id;
   }
