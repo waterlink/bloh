@@ -8,7 +8,16 @@ function AssKeyValue ($data) {
     $result = $result.$item.' = :'.$item.', ';
   }
   $result = substr_replace($result, "", -2);
-  $result = str_replace("id = :id, ","",$result);//preg_replace( "/-\d+x\d+/", "", $path );
+  $result = str_replace("id = :id, ","",$result);
+  return $result;
+}
+
+function AsKeyValue ($data, $divider) {
+  $result = "";
+  foreach ($data as $item => $value){
+    $result = $result.$item.' = '.$value.' '.$devider.' and ';
+  }
+  $result = substr_replace($result, "", -5);
   return $result;
 }
 
@@ -21,7 +30,8 @@ class Base {
 
   function __construct($data = array()) {
     global $db;
-    foreach ($this->_columns as $column) {
+    $class_name = get_called_class();
+    foreach ($class_name::$columns as $column) {
       if (isset($data[$column])) {
         $this->$column = $data[$column];
       }
@@ -40,6 +50,21 @@ class Base {
     } else {
       return NULL;
     }
+  }
+
+  static function where ($columns = array()) {
+    global $db;
+    $class_name = get_called_class();
+    $data = array();
+    $sql = "select * from ".$class_name::$table_name.' where '.AsKeyValue($columns, 'and');
+    echo $sql;
+    $q = $db->prepare($sql);
+    $q->execute();
+    while ($res = $q->fetch()) {
+      echo "\n".$res;
+      array_push($data, new $class_name($res));
+    }
+    return $data;
   }
 
   static function all () {
