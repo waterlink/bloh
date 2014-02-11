@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <script src="/js/index.js"></script>
+
     <title><?= $title ?> - Bloh!</title>
   </head>
   <body>

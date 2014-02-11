@@ -7,6 +7,9 @@ if (isset($content)) {
   $now = date('Y-m-d H:i:s');
   $comment = new Comment(array("post_id"=>$post_id, "content"=>$content, "created_at"=>$now));
   $comment->save();
+  $comments = Comment::where(array("post_id"=>$post_id));
+  foreach ($comments as $comment) {
+    require $_SERVER['DOCUMENT_ROOT'].'/views/comments/comment.php';
+  }
 }
-header('Location:'.get_absolute_url('/views/posts/show.php?id='.$post_id), true, 302);
 ?>
