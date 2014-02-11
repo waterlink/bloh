@@ -14,5 +14,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/lib/helpers.php';
   </div>
   <input type="hidden" name="post_id" value="<?= $post->id ?>">
   <textarea rows="4" cols="50" name="comment"></textarea>
+  <button onClick="javascript:post_comment()">Add comment</button>
 </section>
 <? ob_end_flush() ?>

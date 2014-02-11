@@ -3,6 +3,7 @@ function post_comment(){
   var url = "/logic/comments/new.php";
   var post_id = document.getElementsByName("post_id")[0].value;
   var comment = document.getElementsByName("comment")[0].value;
+  document.getElementsByName("comment")[0].value = "";
   var vars = "post_id="+post_id+"&comment="+comment;
   request.open("POST", url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
