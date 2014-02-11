@@ -18,6 +18,10 @@ body {
   position: relative;
 }
 
+.row>* {
+  display: inline-block;
+}
+
 .row > .row:first-child {
   padding-left: 0px;
 }
@@ -61,6 +65,10 @@ body {
   border: 1px outset buttonface;
   -webkit-appearance: none;
   box-shadow: 1px 1spx 1px #888888;
+}
+
+button.btn.custom {
+  padding-top: 2px;
 }
 
 .btn.custom.ok {

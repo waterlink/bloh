@@ -57,11 +57,9 @@ class Base {
     $class_name = get_called_class();
     $data = array();
     $sql = "select * from ".$class_name::$table_name.' where '.AsKeyValue($columns, 'and');
-    echo $sql;
     $q = $db->prepare($sql);
     $q->execute();
     while ($res = $q->fetch()) {
-      echo "\n".$res;
       array_push($data, new $class_name($res));
     }
     return $data;
