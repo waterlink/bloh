@@ -14,5 +14,5 @@ function post_comment(){
     }
   }
   request.send(vars);
-  document.getElementsByClassName("comments_container")[0].innerHTML = "processing...";
+  // document.getElementsByClassName("comments_container")[0].innerHTML = "processing...";
 }

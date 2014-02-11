@@ -12,6 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/lib/helpers.php';
     }
     ?>
   </div>
+  <hr />
   <div class="inlineflex">
     <input type="hidden" name="post_id" value="<?= $post->id ?>">
     <textarea rows="4" cols="50" name="comment"></textarea>
