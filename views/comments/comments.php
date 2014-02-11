@@ -15,7 +15,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/lib/helpers.php';
   <hr />
   <div class="inlineflex">
     <input type="hidden" name="post_id" value="<?= $post->id ?>">
-    <textarea rows="4" cols="50" name="comment"></textarea>
+    <textarea rows="4" cols="60" name="comment"></textarea>
     <button class="btn custom ok" onClick="javascript:post_comment()">Add comment</button>
   </div>
 </section>
