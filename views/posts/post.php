@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 ?>
   <article>
       <div class="row">
-        <h1 class="pool-left"><?= $post->title ?></h1>
+        <h2 class="pool-left"><?= $post->title ?></h2>
         <time class="pool-right"><i>updated at <?= $post->updated_at?></i>
         </time>
       </div>

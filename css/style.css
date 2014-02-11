@@ -5,6 +5,7 @@ body {
   margin: auto;
   text-align: center;
   width: 80%;
+  max-width: 600px;
 }
 
 .container {
@@ -28,7 +29,7 @@ body {
 
 .post-content {
   font-family: monospace;
-  padding: 30px;
+  padding: 15px;
 }
 
 .btn {
@@ -88,6 +89,10 @@ button.btn.custom {
 .btn.custom.main {
   color: white;
   background: -webkit-repeating-linear-gradient(#0066FF, #0088FF 50%, #0066FF);
+}
+
+.inlineflex {
+  display: inline-flex;
 }
 
 .btn.custom:hover {
