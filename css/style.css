@@ -8,7 +8,7 @@ body {
   max-width: 600px;
 }
 
-.container {
+.post-container {
   text-align: left;
   display: block;
 }
@@ -86,6 +86,11 @@ button.btn.custom {
   background: -webkit-repeating-linear-gradient(#D11111, #E11111 50%, #D11111);
 }
 
+.btn.custom.primary {
+  color: white;
+  background: -webkit-repeating-linear-gradient(#3216B0, #3216D0 50%, #3216B0);
+}
+
 .btn.custom.main {
   color: white;
   background: -webkit-repeating-linear-gradient(#0066FF, #0088FF 50%, #0066FF);
@@ -138,4 +143,28 @@ ul {
 
 .hidden {
   display: none;
+}
+
+/*============Authorization form================*/
+.authorization-body {
+  margin: auto, auto;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  border:1px solid black;
+  border-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.authorization-body > form {
+  width: 300px;
+}
+
+.authorization-body > *{
+  text-align: center;
+}
+
+.authorization-body a {
+  font-size: 10px;
 }

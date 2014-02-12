@@ -11,11 +11,9 @@
   <body>
   <div class="main-container">
     <h1><?= $title ?></h1>
-    <div class="container">
       <?
         require_once $_SERVER['DOCUMENT_ROOT']."/".$view_name.".php";
       ?>
-    </div>
   </div>
   </body>
 </html>
