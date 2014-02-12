@@ -2,20 +2,25 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/lib/connect.php';
 
-function AssKeyValue ($data) {
-  $result = "";
-  foreach ($data as $item){
-    $result = $result.$item.' = :'.$item.', ';
+function AssKeyValue ($data, $divider) {
+  $result = array();
+  foreach ($data as $key) {
+    $result[] = $key.' = :'.$key;
+    return implode($divider, $result);
   }
-  $result = substr_replace($result, "", -2);
-  $result = str_replace("id = :id, ","",$result);
-  return $result;
+  // $result = "";
+  // foreach ($data as $item){
+  //   $result = $result.$item.' = :'.$item.', ';
+  // }
+  // $result = substr_replace($result, "", -2);
+  // $result = str_replace("id = :id, ","",$result);
+  // return $result;
 }
 
 function AsKeyValue ($data, $divider) {
   $result = "";
   foreach ($data as $item => $value){
-    $result = $result.$item.' = '.$value.' '.$devider.' and ';
+    $result = $result.$item.' = :'.$item.' '.$devider.' and ';
   }
   $result = substr_replace($result, "", -5);
   return $result;
@@ -57,11 +62,13 @@ class Base {
     $class_name = get_called_class();
     $data = array();
     $sql = "select * from ".$class_name::$table_name.' where '.AsKeyValue($columns, 'and');
+    echo $sql;
     $q = $db->prepare($sql);
     $q->execute();
     while ($res = $q->fetch()) {
       array_push($data, new $class_name($res));
     }
+    echo count($data);
     return $data;
   }
 
