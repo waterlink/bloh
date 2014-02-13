@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="authorization-body">
-  <form>
+  <form action="/logic/users/authorization.php" method="POST">
     <div class="row">
       <label>Username:&nbsp;</label>
       <input type="text" name="email">

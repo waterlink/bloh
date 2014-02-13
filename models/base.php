@@ -6,16 +6,16 @@ function AsKeyKey ($data, $divider) {
   $result = array();
   foreach ($data as $key => $value) {
     $result[] = $key.' = :'.$key;
-    return implode($divider, $result);
   }
+  return implode($divider, $result);
 }
 
 function AsKeyValue ($data, $divider) {
   $result = array();
   foreach ($data as $key => $value) {
     $result[] = $key.' = '.$value;
-    return implode($divider, $result);
   }
+  return implode($divider, $result);
 }
 
 
@@ -54,7 +54,7 @@ class Base {
     global $db;
     $class_name = get_called_class();
     $data = array();
-    $sql = "select * from ".$class_name::$table_name.' where '.AsKeyKey($columns, 'and');
+    $sql = "select * from ".$class_name::$table_name.' where '.AsKeyKey($columns, ' and ');
     $q = $db->prepare($sql);
     $q->execute($columns);
     while ($res = $q->fetch()) {
