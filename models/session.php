@@ -7,8 +7,9 @@ class Session extends Base {
   private static $cookie_term =60*60*24*30 //30 days
 
   function __construct($data=array()) {
+    $term = time() + self::$cookie_term;
     $data['random_hash'] = crypt('mda512', rand());
-    $term = time()+ self::$cookie_term;
+    $data['death_time'] = $term;
     setcookie("user_id", $data['user_id'], $term);
     setcookie("random_hash", $data['random_hash'], $term);
     parent::__construct($data);
