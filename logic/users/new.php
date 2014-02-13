@@ -11,7 +11,7 @@ if (isset($email) and isset($password) and isset($password_again)) {
     if(count($user) == 0) {
       $user = new User(array('email'=>$email, 'password'=>$password));
       $user->save();
-      require $_SERVER['DOCUMENT_ROOT'].'/views/users/index.php';
+      require_once $_SERVER['DOCUMENT_ROOT'].'/views/users/index.php';
     }
   }
   else {

@@ -84,7 +84,6 @@ class Base {
       $next_id = $db->query("select nextval('".$class_name::$sequence_id."')")->fetch();
       $this->id = $next_id[0];
     } else {
-      // AsKeyValue($class_name::$columns, ',');
       $sql = "update ".$class_name::$table_name." set ".AsKeyValue($class_name::$columns, ',')." where id=:id";
     }
     $q = $db->prepare($sql);
