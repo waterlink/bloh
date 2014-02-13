@@ -2,29 +2,22 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/lib/connect.php';
 
-function AssKeyValue ($data, $divider) {
+function AsKeyKey ($data, $divider) {
   $result = array();
-  foreach ($data as $key) {
+  foreach ($data as $key => $value) {
     $result[] = $key.' = :'.$key;
     return implode($divider, $result);
   }
-  // $result = "";
-  // foreach ($data as $item){
-  //   $result = $result.$item.' = :'.$item.', ';
-  // }
-  // $result = substr_replace($result, "", -2);
-  // $result = str_replace("id = :id, ","",$result);
-  // return $result;
 }
 
 function AsKeyValue ($data, $divider) {
-  $result = "";
-  foreach ($data as $item => $value){
-    $result = $result.$item.' = :'.$item.' '.$devider.' and ';
+  $result = array();
+  foreach ($data as $key => $value) {
+    $result[] = $key.' = '.$value;
+    return implode($divider, $result);
   }
-  $result = substr_replace($result, "", -5);
-  return $result;
 }
+
 
 class Base {
 
@@ -61,14 +54,12 @@ class Base {
     global $db;
     $class_name = get_called_class();
     $data = array();
-    $sql = "select * from ".$class_name::$table_name.' where '.AsKeyValue($columns, 'and');
-    echo $sql;
+    $sql = "select * from ".$class_name::$table_name.' where '.AsKeyKey($columns, 'and');
     $q = $db->prepare($sql);
-    $q->execute();
+    $q->execute($columns);
     while ($res = $q->fetch()) {
       array_push($data, new $class_name($res));
     }
-    echo count($data);
     return $data;
   }
 
@@ -93,8 +84,8 @@ class Base {
       $next_id = $db->query("select nextval('".$class_name::$sequence_id."')")->fetch();
       $this->id = $next_id[0];
     } else {
-      AssKeyValue($class_name::$columns);
-      $sql = "update ".$class_name::$table_name." set ".AssKeyValue($class_name::$columns)." where id=:id";
+      // AsKeyValue($class_name::$columns, ',');
+      $sql = "update ".$class_name::$table_name." set ".AsKeyValue($class_name::$columns, ',')." where id=:id";
     }
     $q = $db->prepare($sql);
     $exec_array = array();
