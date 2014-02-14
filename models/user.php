@@ -17,8 +17,8 @@ class User extends Base {
 
   function validate() {
     $found = $this->where(array('email'=>$this->email, 'password'=>$this->password));
-    if(count($found)>0)
-    {
+    if(count($found)>0){
+      echo "Validated";
       $this->id = $found[0]->id;
       return true;
     }
