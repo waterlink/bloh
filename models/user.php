@@ -11,7 +11,7 @@ class User extends Base {
     parent::__construct($data);
   }
   function save() {
-    $this->password = crypt_pass($this->password);
+    $this->password = self::crypt_pass($this->password);
     parent::save();
   }
 
@@ -24,7 +24,7 @@ class User extends Base {
     }
     return false;
   }
-  private static function crypt_pass ($pass){
+  public static function crypt_pass ($pass){
     return crypt('mda512', $pass.self::$salt);
   }
 }
