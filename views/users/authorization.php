@@ -1,4 +1,5 @@
-<?php ob_start();?>
+<?php
+?>
 <div class="authorization-body">
   <form action="/logic/users/authorization.php" method="POST">
     <div class="row">
@@ -8,9 +9,7 @@
     <div class="row">
       <label>Password:&nbsp;&nbsp;</label>
       <input type="password" name="password">
-      <button class="btn custom primary">Sign in</button>
-      <a href="/logic/users/new.php">Sign up for bloh</a>
     </div>
+    <button class="btn custom primary">Sign in</button>
   </form>
 </div>
-<?php ob_end_flush();?>
