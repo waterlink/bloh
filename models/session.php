@@ -8,23 +8,19 @@ class Session extends Base {
   private $term;
 
   function __construct($data=array()) {
-    $this->term = time() + self::$cookie_term;
     $data['random_hash'] = crypt('mda512', rand());
-    $data['death_time'] = $this->term;
+    $data['death_time'] = time() + self::$cookie_term;
     parent::__construct($data);
   }
 
   function save(){
-    // if(setcookie("user_id", $this->data['user_id']/*, $this->term, '/~logic/users/','localhost:3000',true,true*/)){
-    //   echo " user_id: ".$_COOKIE['user_id'];
-    // }
-    // if(setcookie("random_hash", $this->data['random_hash']/*, $this->term, '/~logic/users/','localhost:3000',true,true*/)){
-    //   echo " hash: ".$_COOKIE['random_hash']; 
-    // }
-    // setcookie('user_id', $data['user_id'], $this->term, '/account', 'localhost:3000');
-    // setcookie('random_hash', $data['random_hash'], $this->term, '/account', 'localhost:3000');
-    // parent::save();
+    // ini_set('dispaly_errors', 1);
+    // error_reporting(E_ALL);
+    // var_dump($data);
+    // exit;
+    setcookie("user_id", $this->user_id, $this->death_time, '/');
+    setcookie("random_hash", $this->random_hash, $this->death_time, '/');
+    parent::save();
   }
 
 }
-?>

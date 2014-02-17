@@ -1,5 +1,4 @@
-<?php
-?>
+<?php ob_start();?>
 <div class="authorization-body">
   <form action="/logic/users/authorization.php" method="POST">
     <div class="row">
@@ -12,4 +11,6 @@
     </div>
     <button class="btn custom primary">Sign in</button>
   </form>
+  <a href="/logic/users/new.php">Sign up for bloh</a>
 </div>
+<?ob_end_flush();?>

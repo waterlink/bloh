@@ -1,5 +1,4 @@
-<?php
-?>
+<?php?>
 <div class="authorization-body">
   <form action="/logic/users/new.php" method="POST">
     <div class="row">
@@ -17,3 +16,4 @@
     <button class="btn custom primary">Sign up</button>
   </form>
 </div>
+<??>

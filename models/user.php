@@ -27,5 +27,3 @@ class User extends Base {
     return crypt('mda512', $pass.self::$salt);
   }
 }
-?>
-<!-- Хешина пользователя должна храниться в куках -->

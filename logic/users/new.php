@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
 $title = "Sign up";
 $view_name = "/views/users/registration";
@@ -19,4 +20,4 @@ if (isset($email) and isset($password) and isset($password_again)) {
   }
 }
 require $_SERVER['DOCUMENT_ROOT']."/views/layouts/layout.php";
-?>
+ob_end_flush();

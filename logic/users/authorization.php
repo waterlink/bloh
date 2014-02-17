@@ -7,7 +7,6 @@ $view_name = "/views/users/authorization";
 $email = $_POST['email'];
 $password = $_POST['password'];
 $user_id = htmlspecialchars($_COOKIE["user_id"]);
-// echo $user_id
 $random_hash = htmlspecialchars($_COOKIE["random_hash"]);
 if (isset($email) and isset($password)){
   $user = new User(array("email"=>$email, "password"=>$password));
@@ -19,5 +18,3 @@ if (isset($email) and isset($password)){
 }
 
 require $_SERVER['DOCUMENT_ROOT']."/views/layouts/layout.php";
-
-?>
