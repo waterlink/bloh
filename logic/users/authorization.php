@@ -3,7 +3,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/session.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/models/user.php";
 
 $title = "Sign in";
-$view_name = "/views/users/authorization";
+$view_name = "/views/users/sign_in";
+// $view_name = "/views/users/authorization";
 $email = $_POST['email'];
 $password = $_POST['password'];
 $user_id = htmlspecialchars($_COOKIE["user_id"]);
