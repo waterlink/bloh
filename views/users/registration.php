@@ -1,5 +1,5 @@
 <?php?>
-<div class="authorization-body">
+<div class="registration-body">
   <form action="/logic/users/new.php" method="POST">
     <div class="row">
       <label>Username:&nbsp;</label>

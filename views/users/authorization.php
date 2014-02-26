@@ -1,16 +1,14 @@
 <?php ob_start();?>
 <div class="authorization-body">
-  <form action="/logic/users/authorization.php" method="POST">
-    <div class="row">
+  <div class="row">
+    <form action="/logic/users/authorization.php" method="POST">
       <label>Username:&nbsp;</label>
       <input type="text" name="email">
-    </div>
-    <div class="row">
       <label>Password:&nbsp;&nbsp;</label>
       <input type="password" name="password">
-    </div>
-    <button class="btn custom primary">Sign in</button>
-  </form>
-  <a href="/logic/users/new.php">Sign up for bloh</a>
+      <button class="btn custom primary">Sign in</button>
+    </form>
+    <a href="/logic/users/new.php">Sign up for bloh</a>
+  </div>
 </div>
 <?ob_end_flush();?>

@@ -145,8 +145,23 @@ ul {
   display: none;
 }
 
-/*============Authorization form================*/
+/*============Authorization body===============*/
 .authorization-body {
+  padding: 5px;
+  float: right;
+}
+
+.authorization-body a:link, .authorization-body a:active, .authorization-body a:visited {
+  color: #FFFB73;
+  text-decoration: none;
+}
+
+.authorization-body input {
+  width: 120px;
+}
+
+/*============Registration form================*/
+.registration-body {
   margin: auto, auto;
   display: inline-block;
   width: auto;
@@ -157,14 +172,23 @@ ul {
   padding-bottom: 5px;
 }
 
-.authorization-body > form {
+.registration-body > form {
   width: 300px;
 }
 
-.authorization-body > *{
+.registration-body > *{
   text-align: center;
 }
 
-.authorization-body a {
+.registration-body a {
   font-size: 10px;
 }
+
+/*============Top panel================*/
+.top-panel{
+  color: #FFFB73;
+  width: 100%;
+  height: 40px;
+  background: #FFA200;
+  padding-top: 5px;
+  }
