@@ -8,12 +8,14 @@ echo "user_id: ".$user_id;
 echo "random_hash".$random_hash;
 if (isset($user_id) and isset($random_hash)){
   $sessions = Session::where(array('user_id' => $user_id, 'random_hash'=> $random_hash));
+  echo "Array";
+  var_dump($sessions);
   echo "session: ".count($sessions);
-  if (count($session) == 0) {
-    setcookie("user_id", "", -1);
-    setcookie("random_hash", "", -1);
-    header("Location:"."/index.php");
-  }
+  // if (count($session) == 0) {
+  //   setcookie("user_id", "", -1);
+  //   setcookie("random_hash", "", -1);
+  //   header("Location:"."/index.php");
+  // }
 
   if ($session->is_actual()){
     $user = User::find($user_id);

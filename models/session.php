@@ -17,7 +17,6 @@ class Session extends Base {
     // ini_set('dispaly_errors', 1);
     // error_reporting(E_ALL);
     // exit;
-    var_dump($this);
     setcookie("user_id", $this->user_id, $this->death_time, '/');
     setcookie("random_hash", $this->random_hash, $this->death_time, '/');
     parent::save();
@@ -34,7 +33,7 @@ class Session extends Base {
   static function destroy_unactual() {
     $sessions = self::all();
     foreach ($sessions as $session) {
-      if ($session->death_time < time()) {
+      if ($session->death_time < date('Y-m-d H:i:s', time())) {
         $session->destroy();
       }
     }

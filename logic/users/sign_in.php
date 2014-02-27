@@ -10,4 +10,4 @@ if (isset($email) and isset($password)){
     $session->save();
   }
 }
-// header('Location:'.'/index.php');
+header('Location:'.'/index.php');
