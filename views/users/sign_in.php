@@ -1,7 +1,7 @@
 <?php ob_start();?>
 <div class="authorization-body">
   <div class="row">
-    <form action="/logic/users/authorization.php" method="POST">
+    <form action="/logic/users/sign_in.php" method="POST">
       <label>Username:&nbsp;</label>
       <input type="text" name="email">
       <label>Password:&nbsp;&nbsp;</label>
