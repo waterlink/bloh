@@ -14,6 +14,5 @@ if (isset($user_id) and isset($random_hash)){
 
   if ($session->is_actual()){
     $user = User::find($user_id);
-    require_once $_SERVER['DOCUMENT_ROOT'].'/views/users/signed.php';
   }
 }

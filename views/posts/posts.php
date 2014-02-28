@@ -10,5 +10,7 @@
     }
   ?>
   </ul>
+  <?if(isset($user)){?>
   <a href="/logic/posts/new.php">Add post</a>
+  <?}?>
 </div>

@@ -15,14 +15,20 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
             <form action="/logic/posts/destroy.php?id=<?=$post->id?>" method="post">
               <input type="hidden" name="method" value="delete">
               <input type="hidden" name="post_id" value="<?=$post->id?>">
+              <?if (isset($user) and $post->id == $user->id){?>
               <button class="btn custom err">Remove Post</button>
+              <?}?>
             </form>
+            <?if (isset($user) and $post->id == $user->id){?>
             <a class="btn custom main" role="button"
               href="/logic/posts/edit.php?id=<?= $post->id?>">Edit post</a>
+            <?}?>
           </div>
         </div>
         <?
-          require $_SERVER['DOCUMENT_ROOT'].'/views/comments/index.php';
+          if(isset($user)){
+            require $_SERVER['DOCUMENT_ROOT'].'/views/comments/index.php';
+          }
         ?>
     </article>
     <a href="<?=Post::get_index_url()?>">All posts</a>
