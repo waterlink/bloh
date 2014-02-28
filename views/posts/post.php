@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/models/post.php";
 ?>
   <div class="post-container">
     <article>
+      <div class="row">Author: <?=User::find($post->user_id)->email?></div>
         <div class="row">
           <h2 class="pool-left"><?= $post->title ?></h2>
           <time class="pool-right"><i>updated at <?= $post->updated_at?></i>
