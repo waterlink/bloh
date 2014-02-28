@@ -9,7 +9,7 @@ class Session extends Base {
 
   function __construct($data=array()) {
     $data['random_hash'] = crypt('mda512', rand());
-    $data['death_time'] = date('Y-m-d H:i:s',time() + self::$cookie_term);
+    $data['death_time'] = time() + self::$cookie_term;
     parent::__construct($data);
   }
 
@@ -19,7 +19,14 @@ class Session extends Base {
     // exit;
     setcookie("user_id", $this->user_id, $this->death_time, '/');
     setcookie("random_hash", $this->random_hash, $this->death_time, '/');
+    $this->death_time = date('Y-m-d H:i:s', $this->death_time);
     parent::save();
+  }
+
+  function destroy() {
+    setcookie("user_id", $this->user_id, -1, '/');
+    setcookie("random_hash", $this->random_hash, -1, '/');
+    parent::destroy();
   }
 
   function is_actual(){
@@ -33,7 +40,7 @@ class Session extends Base {
   static function destroy_unactual() {
     $sessions = self::all();
     foreach ($sessions as $session) {
-      if ($session->death_time < date('Y-m-d H:i:s', time())) {
+      if (!$this->is_actual()) {
         $session->destroy();
       }
     }
