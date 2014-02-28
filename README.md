@@ -43,7 +43,8 @@ It shouldn't output any errors
 ## Creating post table
 
 ```bash
-psql bloh -f post.sql -U bloh -W
+cd scripts
+psql bloh -f create_tables.sql -U bloh -W
 {enter bloh password}
 ```
 
